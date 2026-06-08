@@ -1,0 +1,14 @@
+# Rust build artifacts
+target/
+**/target/
+
+# Node
+node_modules/
+dist/
+
+# Tauri
+src-tauri/target/
+
+# OS
+.DS_Store
+Thumbs.db

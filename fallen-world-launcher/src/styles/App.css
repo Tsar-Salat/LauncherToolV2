@@ -1,0 +1,360 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--bg-primary);
+  position: relative;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  min-width: 0;
+}
+
+/* ── Top bar ──────────────────────────────────────────────────────────── */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 60px;
+  padding: 0 24px;
+  background:
+    linear-gradient(180deg, var(--bg-secondary), var(--bg-tertiary));
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  z-index: 5;
+}
+
+.topbar__title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.topbar__title h1 {
+  color: var(--text-bright);
+  font-size: var(--font-size-xl);
+  letter-spacing: 0.12em;
+  text-shadow: 0 0 12px var(--green-glow);
+}
+.topbar__title span {
+  color: var(--text-dim);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 3px;
+  font-family: var(--font-mono);
+}
+
+.topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.help-link {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+  cursor: pointer;
+  transition: color 0.15s ease, text-shadow 0.15s ease;
+}
+.help-link:hover {
+  color: var(--text-bright);
+  text-shadow: 0 0 8px var(--green-glow);
+}
+
+/* ── Radio widget ─────────────────────────────────────────────────────── */
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+}
+.radio__label {
+  font-family: var(--font-display);
+  letter-spacing: 0.14em;
+  color: var(--text-accent);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.radio__btn {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border-bright);
+  background: var(--bg-raised);
+  color: var(--text-bright);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: 12px;
+}
+.radio__btn:hover {
+  background: var(--bg-hover);
+  box-shadow: 0 0 10px var(--green-glow);
+}
+.radio__btn.is-playing {
+  color: var(--text-accent);
+  border-color: var(--text-accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+.radio__station {
+  font-size: 11px;
+  color: var(--text-secondary);
+  max-width: 130px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.radio__station:hover {
+  color: var(--text-primary);
+}
+.radio__vol {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 80px;
+  height: 4px;
+  background: var(--border-color);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+.radio__vol::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  box-shadow: 0 0 8px var(--green-glow);
+  cursor: pointer;
+}
+.radio__pct {
+  font-size: 11px;
+  color: var(--text-dim);
+  width: 34px;
+  text-align: right;
+}
+/* Audio-only: keep the YT iframe in the DOM but visually gone */
+.radio__host {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Page scroll region + vignette ────────────────────────────────────── */
+.page-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  position: relative;
+  z-index: 0;
+}
+
+/* ── Shared component primitives ──────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: all 0.15s ease;
+}
+.btn:hover:not(:disabled) {
+  background: var(--bg-hover);
+  border-color: var(--border-bright);
+  color: var(--text-bright);
+  box-shadow: 0 0 10px var(--green-glow);
+}
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: linear-gradient(180deg, #2f5a1f, #1f3d14);
+  border-color: var(--border-bright);
+  color: var(--text-bright);
+}
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(180deg, #3c6f28, #275019);
+  box-shadow: 0 0 16px var(--green-glow);
+}
+.btn-secondary {
+  background: var(--bg-raised);
+}
+.btn-large {
+  padding: 14px 22px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.panel {
+  background: linear-gradient(180deg, var(--bg-panel), var(--bg-tertiary));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  position: relative;
+}
+.panel__title {
+  font-family: var(--font-display);
+  color: var(--text-accent);
+  letter-spacing: 0.1em;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-faint);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.message {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  border: 1px solid var(--border-color);
+}
+.message.success {
+  border-color: var(--success);
+  color: var(--success);
+  background: rgba(111, 210, 79, 0.08);
+}
+.message.error {
+  border-color: var(--warning);
+  color: var(--warning);
+  background: rgba(216, 68, 58, 0.08);
+}
+
+/* ── MO2 force-close notification modal ───────────────────────────────────── */
+.mo2-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: mo2-overlay-in 0.2s ease;
+}
+@keyframes mo2-overlay-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.mo2-modal {
+  background: linear-gradient(180deg, var(--bg-panel), var(--bg-tertiary));
+  border: 1px solid var(--warning);
+  border-top-width: 3px;
+  max-width: 540px;
+  width: 92%;
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow:
+    0 0 40px rgba(216, 68, 58, 0.22),
+    0 8px 40px rgba(0, 0, 0, 0.6);
+  animation: mo2-modal-in 0.2s cubic-bezier(0.2, 0.9, 0.4, 1);
+}
+@keyframes mo2-modal-in {
+  from { opacity: 0; transform: translateY(-12px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.mo2-modal__icon {
+  font-size: 32px;
+  color: var(--warning);
+  text-shadow: 0 0 18px var(--warning-glow);
+  line-height: 1;
+}
+
+.mo2-modal__title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.14em;
+  color: var(--warning);
+  text-shadow: 0 0 12px var(--warning-glow);
+  margin: 0;
+}
+
+.mo2-modal__lead {
+  font-size: 14px;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.mo2-modal__reason-label {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.mo2-modal__reasons {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mo2-modal__reasons li {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.mo2-modal__reasons li strong {
+  color: var(--text-primary);
+}
+
+.mo2-modal__footer {
+  font-size: 12px;
+  color: var(--text-dim);
+  border-top: 1px solid var(--border-faint);
+  padding-top: 12px;
+  margin: 0;
+}
+
+.mo2-modal__btn {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 10px 22px;
+  background: linear-gradient(180deg, #5a1414, #3d0d0d);
+  border: 1px solid var(--warning);
+  color: var(--warning);
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.mo2-modal__btn:hover {
+  background: linear-gradient(180deg, #6e1a1a, #4d1010);
+  box-shadow: 0 0 14px var(--warning-glow);
+}

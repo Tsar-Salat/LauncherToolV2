@@ -1,0 +1,1121 @@
+{
+ "junk_ll": "Fallout4.esm|0366C6",
+ "junk_targets": [
+  {
+   "name": "Container_Loot_Raider_Boss",
+   "target": "Fallout4.esm|06D4B0"
+  },
+  {
+   "name": "Container_Loot_Trunk_Raider_Boss",
+   "target": "Fallout4.esm|06D4B8"
+  },
+  {
+   "name": "Container_Loot_WoodCrate_Raider",
+   "target": "Fallout4.esm|0A158D"
+  },
+  {
+   "name": "Container_Loot_Cooler_Raider",
+   "target": "Fallout4.esm|06D4A7"
+  }
+ ],
+ "categories": {
+  "guns": [
+   {
+    "name": "Container_Loot_DuffleBag_Guns",
+    "target": "Fallout4.esm|06D4A8",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|24627F",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|246281",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|04F4A6",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0BF429",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|1ACF80",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "Container_Loot_DuffleBag_Guns_Raider",
+    "target": "Fallout4.esm|06D4A9",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|04F4A6",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|246281",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0BF429",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|18DFEE",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|24627F",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "Container_Loot_ToolCase_Guns",
+    "target": "Fallout4.esm|06D4B5",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|0673B1",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "Container_Loot_ToolCase_Guns_Raider",
+    "target": "Fallout4.esm|06D4B6",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|18DFEF",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|18DFEE",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|18DFE0",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "LLI_Loot_Weapons_Guns_All",
+    "target": "Fallout4.esm|1ACF80",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|0673B2",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0673A1",
+      "level": 5,
+      "count": 1
+     }
+    ]
+   }
+  ],
+  "meds": [
+   {
+    "name": "Container_Loot_Medkit",
+    "target": "Fallout4.esm|06D4AC",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|249F66",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|023736",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|052409",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0366C0",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0C4469",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "Container_Loot_Medkit_Chems",
+    "target": "Fallout4.esm|22335C",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|249F66",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|1BA1AB",
+      "level": 1,
+      "count": 2
+     },
+     {
+      "ref": "Fallout4.esm|1BA1AA",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|1BA1AA",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|023736",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|052409",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "Container_Loot_Medkit_Chems_Prewar",
+    "target": "Fallout4.esm|1BA1A8",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|249F66",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|1BA1A9",
+      "level": 1,
+      "count": 2
+     },
+     {
+      "ref": "Fallout4.esm|023736",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|052409",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "Container_Loot_Medkit_Chems_Raider",
+    "target": "Fallout4.esm|06D4AB",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|249F96",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|249F98",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|1BA1AB",
+      "level": 1,
+      "count": 2
+     },
+     {
+      "ref": "Fallout4.esm|1BA1AA",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|1BA1AA",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|023736",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|052409",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "Container_Loot_Medkit_Wall",
+    "target": "Fallout4.esm|06D4AD",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|249F66",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|052409",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0366C0",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0C4469",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|023736",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "Container_Loot_Cooler_Chems_Raider",
+    "target": "Fallout4.esm|06D4A5",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|249F98",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0366B8",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|065A3B",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|06D4A6",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "LLI_Loot_Chems_Basic",
+    "target": "Fallout4.esm|1BA1AB",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|033778",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|033779",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|03377B",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|03377D",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0366C5",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "LLI_Loot_Chems_Prewar",
+    "target": "Fallout4.esm|1BA1A9",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|033779",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|03377B",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|03377D",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|024057",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|033778",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|156D0B",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|150729",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|1506F4",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "LLI_Loot_Chems_Rare",
+    "target": "Fallout4.esm|1BA1AA",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|0518BB",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|058AA3",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|033778",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|058AA5",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|156D0B",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|150729",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0628CA",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|058AA7",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|10129A",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0518D0",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0518C5",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|058AAC",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|058AA8",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|058AAA",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|058AAD",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|101299",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|1506F4",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "LLI_Loot_Meds_Basic",
+    "target": "Fallout4.esm|0C4469",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|023742",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|024057",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|023736",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   }
+  ],
+  "food": [
+   {
+    "name": "LLI_Loot_Cooler_Food_and_Drink",
+    "target": "Fallout4.esm|06739C",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|06739B",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|038A0B",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|06739D",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|06739E",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "LLI_Loot_Food_Basic",
+    "target": "Fallout4.esm|21C989",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|0F742E",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0330F8",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0BEA58",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0EF24D",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0330FD",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0330FE",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0330F4",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|04A13F",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0330FB",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|033101",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|033106",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0FAFEB",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|033102",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0E0043",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0366BC",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0330FA",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0366BB",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0D981D",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|09DCC4",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "LLI_Loot_Food_Rare",
+    "target": "Fallout4.esm|21C98A",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|02FBE4",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0330F6",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0330EE",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|02FBF7",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|04693B",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0330B4",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0330FC",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0366B9",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|074D0D",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0330FF",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|033100",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|04A14F",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|074D0F",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|23E9D4",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0366BA",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|04A151",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|04695A",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|046940",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|19797D",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0330F2",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0366BE",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0366BD",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "LLI_Loot_Food_Steak",
+    "target": "Fallout4.esm|085316",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|04A151",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|04693F",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|04695A",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|101293",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|046940",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|046941",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|046942",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|046943",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|19797D",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|046950",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|046952",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|046945",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|046955",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "LLI_Loot_Food_Unique",
+    "target": "Fallout4.esm|21C98B",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|02FBE4",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0330F6",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0330EE",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|02FBF7",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0330B4",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0330FC",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0366B9",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|074D0D",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0330FF",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|04A14F",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|074D0F",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|23E9D4",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0366BA",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|04A151",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|04695A",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|046940",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|19797D",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0330F2",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0366BD",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   }
+  ],
+  "drink": [
+   {
+    "name": "LLI_Loot_Drink_Alcohol_Basic",
+    "target": "Fallout4.esm|21C987",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|11EA93",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0366C4",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0366C3",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0366C1",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0366C2",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "LLI_Loot_Drink_Alcohol_Rare",
+    "target": "Fallout4.esm|21C988",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|0F932C",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0F932D",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0F932B",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0F9329",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0F932A",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|022792",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|101295",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "LLI_Loot_Drink_NonAlcohol_Basic",
+    "target": "Fallout4.esm|21C98C",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|04835D",
+      "level": 1,
+      "count": 2
+     },
+     {
+      "ref": "Fallout4.esm|048360",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0366BF",
+      "level": 1,
+      "count": 3
+     }
+    ]
+   },
+   {
+    "name": "LLI_Loot_Drink_NonAlcohol_Rare",
+    "target": "Fallout4.esm|21C98E",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|0366C0",
+      "level": 1,
+      "count": 2
+     }
+    ]
+   },
+   {
+    "name": "LLI_Loot_Drink_NonAlcohol_Unique",
+    "target": "Fallout4.esm|21C98D",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|04835F",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   }
+  ],
+  "ammo": [
+   {
+    "name": "Container_Loot_AmmoBox",
+    "target": "Fallout4.esm|06D4A3",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|087926",
+      "level": 1,
+      "count": 4
+     },
+     {
+      "ref": "Fallout4.esm|0CFC90",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0CFC8F",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   },
+   {
+    "name": "Container_Loot_AmmoBox_Raider",
+    "target": "Fallout4.esm|06D4A4",
+    "entries": [
+     {
+      "ref": "Fallout4.esm|18DFE1",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0CFC90",
+      "level": 1,
+      "count": 1
+     },
+     {
+      "ref": "Fallout4.esm|0CFC91",
+      "level": 1,
+      "count": 1
+     }
+    ]
+   }
+  ]
+ },
+ "tiers": {
+  "Brutal": {
+   "guns": 90,
+   "meds": 90,
+   "food": 88,
+   "drink": 88,
+   "ammo": 70,
+   "junk": 45
+  },
+  "Hardcore": {
+   "guns": 78,
+   "meds": 78,
+   "food": 75,
+   "drink": 75,
+   "ammo": 55,
+   "junk": 40
+  },
+  "Lean": {
+   "guns": 60,
+   "meds": 60,
+   "food": 58,
+   "drink": 58,
+   "ammo": 40,
+   "junk": 35
+  }
+ }
+}

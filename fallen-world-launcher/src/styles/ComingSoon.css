@@ -1,0 +1,95 @@
+.coming-soon {
+  display: grid;
+  place-items: center;
+}
+
+.cs-card {
+  position: relative;
+  width: min(560px, 90%);
+  text-align: center;
+  padding: 48px 36px 40px;
+  background: linear-gradient(180deg, var(--bg-panel), var(--bg-tertiary));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.cs-card::before {
+  /* faint diagonal hazard hatching at the edges */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 14px,
+    rgba(224, 181, 58, 0.04) 14px,
+    rgba(224, 181, 58, 0.04) 28px
+  );
+  pointer-events: none;
+}
+
+.cs-stamp {
+  position: absolute;
+  top: 18px;
+  right: -34px;
+  transform: rotate(35deg);
+  background: var(--warning);
+  color: var(--bg-void);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  font-size: 13px;
+  padding: 4px 44px;
+  box-shadow: 0 0 14px var(--warning-glow);
+}
+
+.cs-icon {
+  font-size: 52px;
+  color: var(--text-accent);
+  text-shadow: 0 0 22px var(--accent-glow);
+  margin-bottom: 8px;
+}
+.cs-title {
+  font-family: var(--font-display);
+  color: var(--text-bright);
+  letter-spacing: 0.14em;
+  font-size: 28px;
+  text-shadow: 0 0 14px var(--green-glow);
+}
+.cs-sub {
+  font-family: var(--font-display);
+  color: var(--text-accent);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-top: 6px;
+}
+.cs-note {
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 18px auto 0;
+  max-width: 420px;
+}
+
+.cs-bar {
+  margin: 26px auto 0;
+  width: 70%;
+  height: 4px;
+  background: var(--bg-void);
+  border: 1px solid var(--border-faint);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.cs-bar > span {
+  display: block;
+  height: 100%;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, var(--text-accent), transparent);
+  box-shadow: 0 0 10px var(--accent-glow);
+  animation: cs-scan 2.2s ease-in-out infinite;
+}
+@keyframes cs-scan {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(320%); }
+}

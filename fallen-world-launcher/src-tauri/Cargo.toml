@@ -1,0 +1,36 @@
+[package]
+name = "fallen-world-launcher"
+version = "0.1.0"
+description = "Fallen World Launcher - Fallout 4 Modlist Manager"
+authors = ["NomadsReach"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "1.5", features = [] }
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tauri = { version = "1.5", features = [ "dialog-open", "shell-open"] }
+tokio = { version = "1", features = ["rt-multi-thread", "sync"] }
+async-trait = "0.1"
+dirs = "5.0"
+uuid = { version = "1.0", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+regex = "1.10"
+xml-rs = "0.8"
+lazy_static = "1.4"
+# Pure-Rust zip reader for "Add Mod" archive installs (deflate via flate2/miniz_oxide).
+zip = { version = "4.0", default-features = false, features = ["deflate"] }
+
+[target.'cfg(windows)'.dependencies]
+winreg = "0.50"
+windows = { version = "0.51", features = ["Win32_Foundation", "Win32_System_LibraryLoader", "Win32_System_Registry", "Win32_System_Diagnostics_ToolHelp", "Win32_System_Threading"] }
+winapi = { version = "0.3", features = ["winuser", "wingdi", "tlhelp32", "handleapi", "minwindef", "sysinfoapi", "processthreadsapi", "minwinbase"] }
+
+[target.'cfg(unix)'.dependencies]
+home = "0.5"
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]

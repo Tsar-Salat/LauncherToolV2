@@ -1,0 +1,318 @@
+/* Fallen World Launcher — global theme
+   Aesthetic: "Pip-Boy command deck" — a retro-futuristic military terminal.
+   Phosphor green on near-black, amber-gold accents, layered CRT atmosphere. */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Surfaces */
+  --bg-void: #070905;
+  --bg-primary: #0a0d08;
+  --bg-secondary: #11160d;
+  --bg-tertiary: #0d1109;
+  --bg-panel: #0f140b;
+  --bg-raised: #161c10;
+  --bg-hover: #1c2414;
+
+  /* Borders & lines */
+  --border-color: #2c4a1c;
+  --border-bright: #3e6b27;
+  --border-faint: #1d3013;
+
+  /* Phosphor greens */
+  --text-primary: #9fd24f;
+  --text-bright: #c7f06a;
+  --text-secondary: #5f8a35;
+  --text-dim: #3f5a26;
+
+  /* Amber accent */
+  --text-accent: #e0b53a;
+  --accent-hover: #f5cb52;
+  --accent-glow: rgba(224, 181, 58, 0.35);
+
+  /* Signal colors */
+  --warning: #d8443a;
+  --warning-glow: rgba(216, 68, 58, 0.35);
+  --success: #6fd24f;
+  --green-glow: rgba(159, 210, 79, 0.28);
+
+  --vignette: rgba(0, 0, 0, 0.72);
+
+  /* Typography */
+  --font-display: 'Oswald', 'Bahnschrift', 'Arial Narrow', sans-serif;
+  --font-mono: 'Share Tech Mono', 'Consolas', 'Courier New', monospace;
+  /* Back-compat alias: older page CSS still references --font-family */
+  --font-family: var(--font-mono);
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 22px;
+
+  --radius: 4px;
+}
+
+/* ── Selectable themes ───────────────────────────────────────────────────
+   Each block re-paints the variables above. `fallout` is the bare :root, so it
+   needs no override here. Set via <html data-theme="..."> from the theme ctx. */
+
+/* Amber Terminal — monochrome amber on black */
+[data-theme='amber'] {
+  --bg-void: #080503;
+  --bg-primary: #0c0805;
+  --bg-secondary: #140d06;
+  --bg-tertiary: #100a05;
+  --bg-panel: #130d06;
+  --bg-raised: #1c1309;
+  --bg-hover: #241a0d;
+  --border-color: #5a3d12;
+  --border-bright: #7a531a;
+  --border-faint: #33240c;
+  --text-primary: #e0a740;
+  --text-bright: #ffc966;
+  --text-secondary: #9a6f2c;
+  --text-dim: #5f471d;
+  --text-accent: #ffcf5c;
+  --accent-hover: #ffdd80;
+  --accent-glow: rgba(255, 201, 102, 0.35);
+  --warning: #ff5a3a;
+  --warning-glow: rgba(255, 90, 58, 0.35);
+  --success: #e0a740;
+  --green-glow: rgba(224, 167, 64, 0.28);
+}
+
+/* Vault-Tec Blue — blue terminal with yellow accent */
+[data-theme='vault'] {
+  --bg-void: #04070d;
+  --bg-primary: #070b14;
+  --bg-secondary: #0a1322;
+  --bg-tertiary: #08101c;
+  --bg-panel: #0a1220;
+  --bg-raised: #0f1c33;
+  --bg-hover: #15263f;
+  --border-color: #1c4a7a;
+  --border-bright: #2a6aad;
+  --border-faint: #122f4d;
+  --text-primary: #5fb3f0;
+  --text-bright: #9fd6ff;
+  --text-secondary: #3a7bb0;
+  --text-dim: #27506f;
+  --text-accent: #ffd24a;
+  --accent-hover: #ffe070;
+  --accent-glow: rgba(255, 210, 74, 0.35);
+  --warning: #ff5a4a;
+  --warning-glow: rgba(255, 90, 74, 0.35);
+  --success: #4fd2a0;
+  --green-glow: rgba(95, 179, 240, 0.28);
+}
+
+/* Enclave Steel — cold gunmetal with crimson accent */
+[data-theme='enclave'] {
+  --bg-void: #06080a;
+  --bg-primary: #0a0d10;
+  --bg-secondary: #11161b;
+  --bg-tertiary: #0d1115;
+  --bg-panel: #0f1419;
+  --bg-raised: #171e25;
+  --bg-hover: #1f2932;
+  --border-color: #33424f;
+  --border-bright: #4c606f;
+  --border-faint: #212c35;
+  --text-primary: #aebfcc;
+  --text-bright: #e2edf5;
+  --text-secondary: #6e8190;
+  --text-dim: #45525d;
+  --text-accent: #d23a3a;
+  --accent-hover: #f25555;
+  --accent-glow: rgba(210, 58, 58, 0.35);
+  --warning: #ffae3a;
+  --warning-glow: rgba(255, 174, 58, 0.35);
+  --success: #4fd27a;
+  --green-glow: rgba(120, 150, 175, 0.28);
+}
+
+/* Institute — clean light lab theme */
+[data-theme='institute'] {
+  --bg-void: #dfe6ea;
+  --bg-primary: #eef3f6;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f4f8fa;
+  --bg-panel: #ffffff;
+  --bg-raised: #eef3f6;
+  --bg-hover: #e2eaef;
+  --border-color: #c3d2da;
+  --border-bright: #9fb6c2;
+  --border-faint: #d8e2e8;
+  --text-primary: #1c3a47;
+  --text-bright: #0c2630;
+  --text-secondary: #4a6b78;
+  --text-dim: #8aa1ab;
+  --text-accent: #0b8f9c;
+  --accent-hover: #0aa6b5;
+  --accent-glow: rgba(11, 143, 156, 0.25);
+  --warning: #c0392b;
+  --warning-glow: rgba(192, 57, 43, 0.25);
+  --success: #1f9d57;
+  --green-glow: rgba(11, 143, 156, 0.18);
+  --vignette: rgba(0, 0, 0, 0.10);
+}
+/* Soften the CRT overlays on the light theme so they don't muddy the page. */
+[data-theme='institute'] body::before { opacity: 0.4; }
+[data-theme='institute'] body::after { display: none; }
+
+/* Repaint the primary button in the light theme's own teal palette instead of
+   the default dark-green gradient, so it matches the rest of the UI. */
+[data-theme='institute'] .btn-primary {
+  background: linear-gradient(180deg, #0fa2b0, #0a7c88);
+  border-color: #0aa6b5;
+  color: #ffffff;
+}
+[data-theme='institute'] .btn-primary:hover:not(:disabled) {
+  background: linear-gradient(180deg, #14b6c5, #0c8f9c);
+  border-color: #14b6c5;
+  box-shadow: 0 0 14px var(--accent-glow);
+  color: #ffffff;
+}
+
+/* ── Institute text legibility fixes ──────────────────────────────────────
+   In the light theme several "dim" text roles become invisible on near-white
+   surfaces. Override just those roles to a readable dark value. */
+[data-theme='institute'] .group-type,
+[data-theme='institute'] .text-muted,
+[data-theme='institute'] .plugin-desc,
+[data-theme='institute'] .fomod-empty,
+[data-theme='institute'] .mods-empty,
+[data-theme='institute'] .mods-count {
+  color: #3a5260;
+}
+
+/* Card backgrounds need white + a clear border so they lift off the group panel. */
+[data-theme='institute'] .radio-option,
+[data-theme='institute'] .checkbox-option {
+  background: #ffffff;
+  border-color: #b0c5d0;
+  border-left-color: #b0c5d0;
+}
+[data-theme='institute'] .radio-option:hover,
+[data-theme='institute'] .checkbox-option:hover {
+  border-color: #6aafc0;
+  border-left-color: #6aafc0;
+}
+
+/* Mod list rows */
+[data-theme='institute'] .mod-row:hover { background: rgba(11, 143, 156, 0.06); }
+[data-theme='institute'] .mod-row.off .mod-name { color: #7a9aaa; }
+
+/* Sidebar dim labels */
+[data-theme='institute'] .stat__name,
+[data-theme='institute'] .stat__label { color: #3a5260; }
+[data-theme='institute'] .sidebar__version { color: #6a8a9a; }
+
+/* INI editor: the active mode button and sub-tabs use a hardcoded Pip-Boy green
+   that clashes on the light surfaces. Repaint them in the theme's teal. */
+[data-theme='institute'] .ini-mode__btn.active {
+  background: linear-gradient(180deg, #0fa2b0, #0a7c88);
+  color: #ffffff;
+}
+[data-theme='institute'] .raw-subtab.active {
+  background: rgba(11, 143, 156, 0.12);
+  box-shadow: 0 0 8px rgba(11, 143, 156, 0.1);
+}
+[data-theme='institute'] .raw-subtab.active .raw-subtab__count { color: rgba(11, 143, 156, 0.7); }
+[data-theme='institute'] .tweak-btn.on .tweak-btn__state {
+  background: rgba(31, 157, 87, 0.15);
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-base);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+h1,
+h2,
+h3,
+h4,
+.display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 0;
+  border: 1px solid var(--bg-void);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-bright);
+}
+
+/* ── CRT atmosphere ──────────────────────────────────────────────────────
+   Subtle, static scanlines + a faint top glow. Kept light (low alpha, 4px
+   period, no drift) so dense terminal text stays crisp and readable. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.10),
+      rgba(0, 0, 0, 0.10) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+  pointer-events: none;
+  z-index: 9998;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(159, 210, 79, 0.04) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 9997;
+}
+
+/* Shared utility: phosphor text glow */
+.glow {
+  text-shadow: 0 0 8px var(--green-glow);
+}
+.glow-amber {
+  text-shadow: 0 0 10px var(--accent-glow);
+}

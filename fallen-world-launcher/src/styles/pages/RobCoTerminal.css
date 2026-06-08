@@ -1,0 +1,341 @@
+/* RobCo Industries Terminal — cinematic setup intro.
+   Full-screen fixed overlay. CRT phosphor green on near-black.
+   Phases: boot → hack → matrix → welcome → fade out.           */
+
+/* ── Outer shell ──────────────────────────────────────────────────────────── */
+.rct {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000900;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  color: #4aff2a;
+  overflow: hidden;
+  /* CRT curvature vignette */
+  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.8);
+  transition: opacity 0.8s ease;
+}
+.rct--fade { opacity: 0; pointer-events: none; }
+
+/* 80 ms phosphor burst that fires each time a line is received */
+.rct--line-flash::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 40%, rgba(74, 255, 42, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 10;
+  animation: rct-flash 0.08s ease-out forwards;
+}
+@keyframes rct-flash {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* Skip button */
+.rct__skip {
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  z-index: 20;
+  background: transparent;
+  border: 1px solid #1a4a0a;
+  color: #2a7a12;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  padding: 5px 16px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.rct__skip:hover {
+  border-color: #4aff2a;
+  color: #4aff2a;
+  text-shadow: 0 0 8px rgba(74, 255, 42, 0.6);
+}
+
+/* CRT scanlines shared layer */
+.rct__scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.18) 2px,
+    rgba(0, 0, 0, 0.18) 4px
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ── PHASE: GIF SPLASH ────────────────────────────────────────────────────── */
+.rct__gif {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: #000;
+  cursor: pointer;
+  position: relative;
+}
+.rct__gif-img {
+  max-width: 80vw;
+  max-height: 70vh;
+  object-fit: contain;
+  border: 1px solid #1a4a0a;
+  box-shadow:
+    0 0 40px rgba(74, 255, 42, 0.12),
+    0 0 80px rgba(74, 255, 42, 0.06);
+}
+.rct__gif-hint {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: #1d5c0a;
+  animation: rct-hint-blink 1.4s step-end infinite;
+}
+
+/* ── PHASE: BOOT ─────────────────────────────────────────────────────────── */
+.rct__screen {
+  flex: 1;
+  padding: 52px 72px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  position: relative;
+  /* Suppress scrollbar — auto-scroll happens in JS */
+  scrollbar-width: none;
+}
+.rct__screen::-webkit-scrollbar { display: none; }
+
+.rct__line {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4aff2a;
+  text-shadow: 0 0 7px rgba(74, 255, 42, 0.65);
+  animation: rct-appear 0.04s ease-out;
+  white-space: pre;
+}
+@keyframes rct-appear {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.rct__line--blank { min-height: 10px; }
+
+/* Blinking cursor on the last line */
+.rct__line--cursor::after {
+  content: '█';
+  font-size: 15px;
+  margin-left: 2px;
+  animation: rct-cursor 0.75s step-end infinite;
+}
+@keyframes rct-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Bright variant for "OK" / "GRANTED" lines */
+.rct__line--bright {
+  color: #c7f06a;
+  text-shadow: 0 0 14px rgba(199, 240, 106, 0.85);
+  font-size: 16px;
+  letter-spacing: 0.05em;
+}
+
+/* ── PHASE: HACK ─────────────────────────────────────────────────────────── */
+.rct__screen--hack { justify-content: flex-start; gap: 0; }
+
+.rct__garbage {
+  margin: 0 0 22px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #1d5c0a;
+  letter-spacing: 0.14em;
+  white-space: pre;
+  user-select: none;
+  opacity: 0.9;
+}
+
+.rct__bar-wrap { margin-bottom: 26px; }
+.rct__bar-label {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  color: #2aaa12;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.rct__bar-track {
+  position: relative;
+  width: 100%;
+  height: 22px;
+  background: #050f03;
+  border: 1px solid #1a5a08;
+  overflow: hidden;
+}
+.rct__bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #135a06, #4aff2a);
+  box-shadow: 0 0 18px rgba(74, 255, 42, 0.55);
+  transition: width 0.03s linear;
+}
+.rct__bar-pct {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #c7f06a;
+  text-shadow: 0 0 6px rgba(199, 240, 106, 0.7);
+  mix-blend-mode: difference;
+}
+
+.rct__hack-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+/* ── PHASE: MATRIX ───────────────────────────────────────────────────────── */
+.rct__matrix {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #000900;
+}
+.rct__canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+/* "FALLEN WORLD" bursts through the rain */
+.rct__matrix-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  pointer-events: none;
+}
+.rct__matrix-word {
+  display: block;
+  font-size: 70px;
+  font-family: 'Oswald', 'Share Tech Mono', monospace;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: #c7f06a;
+  text-shadow:
+    0 0 24px rgba(199, 240, 106, 0.95),
+    0 0 60px rgba(74, 255, 42, 0.5),
+    0 0 100px rgba(74, 255, 42, 0.25);
+  opacity: 0;
+  animation: rct-word-burst 0.5s cubic-bezier(0.2, 0.9, 0.4, 1) forwards;
+}
+@keyframes rct-word-burst {
+  0%   { opacity: 0; transform: scale(0.7) translateY(16px); filter: blur(12px); }
+  60%  { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ── PHASE: WELCOME ──────────────────────────────────────────────────────── */
+.rct__welcome {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  cursor: pointer;
+  /* Adds a subtle depth pulse */
+  animation: rct-bg-pulse 3s ease-in-out infinite alternate;
+}
+@keyframes rct-bg-pulse {
+  from { background: #000900; }
+  to   { background: #010d01; }
+}
+
+.rct__wl-symbol {
+  font-size: 80px;
+  color: #4aff2a;
+  text-shadow:
+    0 0 28px rgba(74, 255, 42, 0.9),
+    0 0 60px rgba(74, 255, 42, 0.45),
+    0 0 100px rgba(74, 255, 42, 0.2);
+  animation: rct-pop 0.45s cubic-bezier(0.2, 0.9, 0.4, 1);
+  /* Slow spin on the radiation symbol */
+  will-change: transform;
+}
+.rct__wl-symbol { animation: rct-pop 0.45s cubic-bezier(0.2, 0.9, 0.4, 1), rct-spin 12s linear infinite; }
+@keyframes rct-spin {
+  to { transform: rotate(360deg); }
+}
+
+.rct__wl-title {
+  font-family: 'Oswald', 'Share Tech Mono', monospace;
+  font-weight: 700;
+  font-size: 76px;
+  letter-spacing: 0.22em;
+  color: #c7f06a;
+  text-shadow:
+    0 0 24px rgba(199, 240, 106, 0.7),
+    0 0 60px rgba(74, 255, 42, 0.3);
+  animation: rct-pop 0.45s cubic-bezier(0.2, 0.9, 0.4, 1);
+  margin: 0;
+}
+
+.rct__wl-sub {
+  font-size: 20px;
+  letter-spacing: 0.5em;
+  color: #4aff2a;
+  text-shadow: 0 0 10px rgba(74, 255, 42, 0.55);
+  animation: rct-pop 0.45s cubic-bezier(0.2, 0.9, 0.4, 1);
+  margin: 4px 0 0;
+}
+
+.rct__wl-quote {
+  margin-top: 30px;
+  font-size: 30px;
+  font-family: 'Share Tech Mono', monospace;
+  color: #e0b53a;
+  text-shadow:
+    0 0 18px rgba(224, 181, 58, 0.75),
+    0 0 40px rgba(224, 181, 58, 0.3);
+  letter-spacing: 0.06em;
+  animation: rct-pop 0.5s cubic-bezier(0.2, 0.9, 0.4, 1);
+}
+
+.rct__wl-hint {
+  margin-top: 40px;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: #1d5c0a;
+  animation: rct-hint-blink 1.4s step-end infinite, rct-pop 0.3s ease;
+}
+@keyframes rct-hint-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* Shared entry pop for welcome items */
+@keyframes rct-pop {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .rct__screen    { padding: 28px 24px; }
+  .rct__wl-title  { font-size: 42px; }
+  .rct__wl-quote  { font-size: 18px; }
+  .rct__matrix-word { font-size: 42px; }
+}

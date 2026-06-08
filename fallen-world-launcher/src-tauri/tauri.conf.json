@@ -1,0 +1,50 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist"
+  },
+  "package": {
+    "productName": "Fallen World Launcher",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "windows": [
+      {
+        "fullscreen": false,
+        "height": 850,
+        "resizable": true,
+        "title": "Fallen World Launcher",
+        "width": 1400,
+        "transparent": false,
+        "decorations": true
+      }
+    ],
+    "security": {
+      "csp": null
+    },
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": true
+      },
+      "dialog": {
+        "open": true
+      }
+    },
+    "bundle": {
+      "active": false,
+      "targets": "all",
+      "identifier": "com.fallenworld.launcher",
+      "icon": [
+        "icons/icon-32x32.png",
+        "icons/icon-128x128.png",
+        "icons/icon-256x256.png",
+        "icons/icon-512x512.png",
+        "icons/icon.ico"
+      ]
+    }
+  }
+}

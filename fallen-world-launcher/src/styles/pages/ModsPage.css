@@ -1,0 +1,229 @@
+.mods-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  min-height: 0;
+}
+
+/* The base-mods section fills the remaining height; only its list scrolls. */
+.mods-section--base {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Toolbar */
+.mods-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  flex-wrap: wrap;
+}
+.mods-toolbar__left {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.panel-title-inline {
+  font-family: var(--font-display);
+  color: var(--text-accent);
+  letter-spacing: 0.1em;
+  font-size: 15px;
+}
+.mods-count {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+.mods-toolbar__right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.mods-toolbar__right .btn { font-size: 12px; padding: 8px 12px; }
+.mods-filter {
+  background: var(--bg-void);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 8px 10px;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  width: 200px;
+  outline: none;
+}
+.mods-filter:focus { border-color: var(--text-accent); }
+
+/* Override switch */
+.override-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.override-switch input { accent-color: var(--warning); cursor: pointer; }
+.override-switch.on {
+  border-color: var(--warning);
+  color: var(--warning);
+  box-shadow: 0 0 10px var(--warning-glow);
+}
+
+/* Sections */
+.mods-section { padding: 0; overflow: hidden; }
+.mods-section__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-faint);
+  background: linear-gradient(90deg, rgba(224, 181, 58, 0.08), transparent);
+}
+.mods-section__head h4 {
+  font-family: var(--font-display);
+  color: var(--text-accent);
+  letter-spacing: 0.08em;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.mods-section__head span {
+  color: var(--text-secondary);
+  font-size: 12px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border-faint);
+  border-radius: 10px;
+  padding: 1px 9px;
+}
+.mods-empty {
+  padding: 12px 16px;
+  color: var(--text-dim);
+  font-size: 12px;
+}
+
+/* Mod rows */
+.mods-list {
+  max-height: 46vh;
+  overflow-y: auto;
+}
+/* The base list isn't capped — it fills the section and scrolls internally so the
+   page uses the full height instead of a short box. */
+.mods-list--base {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: none;
+}
+.mod-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--border-faint);
+  transition: background 0.1s;
+}
+.mod-row:hover { background: rgba(159, 210, 79, 0.04); }
+.mod-row.off .mod-name { color: var(--text-dim); }
+.mod-row.locked { opacity: 0.92; }
+
+.mod-toggle {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  background: var(--bg-void);
+  color: var(--success);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.mod-toggle.on {
+  border-color: var(--success);
+  background: rgba(111, 210, 79, 0.16);
+  box-shadow: 0 0 8px var(--green-glow);
+}
+.mod-toggle:disabled { cursor: not-allowed; opacity: 0.5; }
+.mod-toggle:not(:disabled):hover { border-color: var(--border-bright); }
+
+/* Reorder controls */
+.mod-move {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.mod-move__btn {
+  width: 20px;
+  height: 12px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  background: var(--bg-void);
+  color: var(--text-secondary);
+  font-size: 8px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.mod-move__btn:not(:disabled):hover {
+  border-color: var(--text-accent);
+  color: var(--text-accent);
+}
+.mod-move__btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.mod-name {
+  flex: 1;
+  min-width: 0;
+  color: var(--text-primary);
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mod-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.mod-tag {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  padding: 1px 6px;
+  border-radius: 2px;
+}
+.mod-tag.user {
+  background: rgba(224, 181, 58, 0.18);
+  color: var(--text-accent);
+  border: 1px solid var(--text-accent);
+}
+.mod-tag.lock { color: var(--text-dim); }
+.mod-state {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  width: 32px;
+  text-align: right;
+}
+.mod-state.on { color: var(--success); }
+.mod-state.off { color: var(--text-dim); }
+
+.mods-loading {
+  padding: 30px;
+  text-align: center;
+  color: var(--text-secondary);
+}
