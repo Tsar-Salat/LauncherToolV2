@@ -8,7 +8,6 @@ import '../styles/pages/SetupPage.css'
 const TERMINAL_KEY = 'fwl.terminal.shown'
 
 type GpuVendor = 'NVIDIA' | 'AMD' | 'Intel'
-type Upscaler = 'DLAA' | 'DLSS'
 
 interface ResolutionOption {
   label: string
@@ -39,7 +38,7 @@ const PREREQ_ITEMS = [
 const STEP_LABELS = [
   'Game Location',
   'Display Resolution',
-  'GPU & Upscaler',
+  'GPU Vendor',
   'System Prerequisites',
   'Pagefile',
   'Review & Save',
@@ -82,7 +81,7 @@ export default function SetupPage({ onComplete }: SetupPageProps = {}) {
   const [pathMsg, setPathMsg] = useState('')
   const [resolution, setResolution] = useState<[number, number] | null>(null)
   const [gpu, setGpu] = useState<GpuVendor | null>(null)
-  const [upscaler, setUpscaler] = useState<Upscaler | null>('DLAA')
+  const [upscaler] = useState<string | null>(null)
   const [prereqAcks, setPrereqAcks] = useState<boolean[]>(() => PREREQ_ITEMS.map(() => false))
   const [pagefileAcked, setPagefileAcked] = useState(false)
   const [alreadyComplete, setAlreadyComplete] = useState(false)
@@ -128,9 +127,6 @@ export default function SetupPage({ onComplete }: SetupPageProps = {}) {
       setGpu(
         (saved.gpu_vendor as GpuVendor | null) ?? normaliseGpuVendor(info.gpu_vendor)
       )
-      if (saved.upscaler === 'DLAA' || saved.upscaler === 'DLSS') {
-        setUpscaler(saved.upscaler)
-      }
       if (saved.prereqs_acked.length === PREREQ_ITEMS.length) {
         setPrereqAcks(saved.prereqs_acked)
       }
@@ -413,11 +409,11 @@ export default function SetupPage({ onComplete }: SetupPageProps = {}) {
 
           {stepIdx === 2 && (
             <>
-              <h3>GPU Vendor & Upscaler</h3>
+              <h3>GPU Vendor</h3>
               <p>
                 Detected: <strong>{systemInfo?.gpu_vendor || 'detecting…'}</strong>
               </p>
-              <p>Confirm your GPU vendor so the correct upscaler files are installed.</p>
+              <p>Confirm your GPU vendor so the correct graphics files are installed.</p>
               <div className="setup-options">
                 {GPU_OPTIONS.map((v) => (
                   <label key={v} className="radio-option">
@@ -433,41 +429,6 @@ export default function SetupPage({ onComplete }: SetupPageProps = {}) {
                   </label>
                 ))}
               </div>
-
-              {gpu && (
-                <div className="setup-subgroup">
-                  <h4>Upscaler</h4>
-                  <p className="text-muted">
-                    Choose one, or click the selected option again to clear it. DLAA keeps ENB
-                    support; DLSS is higher performance but is incompatible with ENB and requires
-                    an NVIDIA GPU.
-                  </p>
-                  <div className="setup-options">
-                    {(['DLAA', 'DLSS'] as const).map((u) => (
-                      <label key={u} className="radio-option">
-                        <input
-                          type="radio"
-                          name="upscaler"
-                          checked={upscaler === u}
-                          onClick={() => setUpscaler(upscaler === u ? null : u)}
-                          onChange={() => {}}
-                          disabled={u === 'DLSS' && gpu !== 'NVIDIA'}
-                        />
-                        <span className="radio-label">
-                          <strong>{u}</strong>
-                          <p className="plugin-desc">
-                            {u === 'DLAA'
-                              ? 'Quality — anti-aliasing only, ENB-compatible'
-                              : gpu !== 'NVIDIA'
-                                ? 'Requires an NVIDIA GPU'
-                                : 'Performance — no ENB'}
-                          </p>
-                        </span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-              )}
             </>
           )}
 
@@ -660,10 +621,6 @@ export default function SetupPage({ onComplete }: SetupPageProps = {}) {
                 <div className="setup-review-item">
                   <span className="label">GPU vendor:</span>
                   <span className="value">{gpu || '—'}</span>
-                </div>
-                <div className="setup-review-item">
-                  <span className="label">Upscaler:</span>
-                  <span className="value">{upscaler ?? 'None'}</span>
                 </div>
                 <div className="setup-review-item">
                   <span className="label">Prerequisites:</span>

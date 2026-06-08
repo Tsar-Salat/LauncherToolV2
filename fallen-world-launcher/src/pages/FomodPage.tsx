@@ -24,7 +24,7 @@ interface PendingUsmSelection {
 
 // Options intentionally hidden from the Optional Mods wizard.
 const HIDDEN_PLUGINS = new Set(
-  ['e for activate', 'ps5 controller support', 'unleveled world']
+  ['e for activate', 'ps5 controller support', 'unleveled world', 'upscaling support']
 )
 
 const USM_PLUGIN_NAME = 'unlimited survival mode'
@@ -179,7 +179,7 @@ export default function FomodPage() {
         selections: selectionList,
         confirmed_resolution: onboarding.resolution,
         confirmed_gpu: onboarding.gpu_vendor,
-        upscaler_mode: onboarding.upscaler || 'DLAA',
+        upscaler_mode: onboarding.upscaler || undefined,
       })
 
       console.log('[FOMOD] Result:', result)

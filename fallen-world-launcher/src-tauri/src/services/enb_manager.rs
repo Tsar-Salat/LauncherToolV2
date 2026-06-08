@@ -419,10 +419,14 @@ impl EnbManager {
             EnbInfo { name: name.clone(), has_showcase }
         });
 
+        let active = match state.active.as_str() {
+            "none" | "custom" => state.active.clone(),
+            _ => "default".to_string(),
+        };
         Ok(EnbStatus {
             default,
             custom,
-            active: if state.active.is_empty() { "default".to_string() } else { state.active.clone() },
+            active,
             deploy_path: deploy.to_string_lossy().to_string(),
         })
     }
@@ -515,6 +519,42 @@ impl EnbManager {
             let _ = fs::remove_dir_all(&tmp);
         }
         result
+    }
+
+    pub fn disable_enb() -> OperationResult {
+        match Self::disable_enb_inner() {
+            Ok(n) => OperationResult { success: true, message: format!("ENB disabled ({} files removed from Optional Mods).", n) },
+            Err(e) => OperationResult { success: false, message: e },
+        }
+    }
+
+    fn disable_enb_inner() -> Result<usize, String> {
+        let deploy = Self::deploy_dir()?;
+        let mut state = Self::load_state();
+
+        // Build removal list: current manifest + default ENB files (which may have
+        // been placed by the FOMOD installer without going through the launcher).
+        let defaults = Self::collect_default_files().unwrap_or_default();
+        let mut removal = state.manifest.clone();
+        removal.extend(defaults.iter().map(|(_, r)| r.clone()));
+        removal.sort();
+        removal.dedup();
+
+        let mut removed = 0usize;
+        for rel in &removal {
+            if Self::is_kept(rel) { continue; }
+            let target = deploy.join(rel);
+            if target.is_file() {
+                let _ = fs::remove_file(&target);
+                Self::prune_empty_parents(&deploy, &target);
+                removed += 1;
+            }
+        }
+
+        state.active = "none".to_string();
+        state.manifest = Vec::new();
+        Self::save_state(&state)?;
+        Ok(removed)
     }
 
     pub fn remove_custom() -> OperationResult {

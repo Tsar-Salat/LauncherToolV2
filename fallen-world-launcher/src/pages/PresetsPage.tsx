@@ -3,7 +3,7 @@ import { open } from '@tauri-apps/api/dialog'
 import { enbApi, EnbStatus, EnbConfig, EnbIniChange } from '../utils/tauriApi'
 import '../styles/pages/PresetsPage.css'
 
-type Which = 'default' | 'custom'
+type Which = 'default' | 'custom' | 'none'
 
 interface InstallForm {
   path: string
@@ -239,6 +239,14 @@ export default function PresetsPage() {
         <button className="btn btn-secondary" onClick={refresh} disabled={busy}>↻ Refresh</button>
       </div>
 
+      {/* ── Disabled banner ── */}
+      {active === 'none' && (
+        <div className="message" style={{ marginBottom: 12, background: 'rgba(255,180,0,0.12)', borderColor: 'rgba(255,180,0,0.4)', color: 'var(--text-muted)' }}>
+          ⚠ ENB is currently <strong>disabled</strong>. ENB files have been removed from the Optional Mods folder.
+          Activate the Default ENB or install a Custom ENB to re-enable visuals.
+        </div>
+      )}
+
       <div className="enb-grid">
         {/* ── Default ENB ── */}
         <div className={`enb-card panel ${active === 'default' ? 'is-active' : ''}`}>
@@ -261,12 +269,22 @@ export default function PresetsPage() {
                   Configure / Preview
                 </button>
               )}
+              {active !== 'none' && (
+                <button
+                  className="btn btn-secondary"
+                  onClick={() => run(() => enbApi.disableEnb())}
+                  disabled={busy}
+                  title="Remove ENB files from the Optional Mods folder"
+                >
+                  Disable ENB
+                </button>
+              )}
               <button
                 className="btn btn-primary"
                 onClick={() => run(() => enbApi.removeCustom())}
                 disabled={busy || active === 'default'}
               >
-                {active === 'default' ? 'Currently Active' : 'Restore Default'}
+                {active === 'default' ? 'Currently Active' : 'Enable Default ENB'}
               </button>
             </div>
           </div>

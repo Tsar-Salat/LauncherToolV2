@@ -74,6 +74,7 @@ fn main() {
             commands::enb::apply_default_enb,
             commands::enb::install_custom_enb,
             commands::enb::remove_custom_enb,
+            commands::enb::disable_enb,
             commands::enb::get_enb_showcase,
             // Preset commands
             commands::presets::list_presets,

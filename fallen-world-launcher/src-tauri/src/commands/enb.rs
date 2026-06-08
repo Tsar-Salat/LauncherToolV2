@@ -32,6 +32,11 @@ pub async fn remove_custom_enb() -> OperationResult {
 }
 
 #[tauri::command]
+pub async fn disable_enb() -> OperationResult {
+    EnbManager::disable_enb()
+}
+
+#[tauri::command]
 pub async fn get_enb_showcase(which: String) -> String {
     EnbManager::showcase(&which)
 }

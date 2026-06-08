@@ -258,7 +258,7 @@ export interface EnbInfo {
 export interface EnbStatus {
   default: EnbInfo
   custom: EnbInfo | null
-  active: 'default' | 'custom'
+  active: 'default' | 'custom' | 'none'
   deploy_path: string
 }
 export interface EnbEffect {
@@ -292,6 +292,7 @@ export const enbApi = {
   installCustom: (sourceDir: string, name: string, showcasePath?: string | null) =>
     invoke<OperationResult>('install_custom_enb', { sourceDir, name, showcasePath: showcasePath ?? null }),
   removeCustom: () => invoke<OperationResult>('remove_custom_enb'),
+  disableEnb: () => invoke<OperationResult>('disable_enb'),
   /** Returns a data: URL (or empty string). `which` is 'default' | 'custom'. */
   showcase: (which: 'default' | 'custom') => invoke<string>('get_enb_showcase', { which }),
   /** Parsed enbseries.ini for the preview/editor. `target` is 'live' (editable
