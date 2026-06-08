@@ -35,7 +35,7 @@
       }
     },
     "bundle": {
-      "active": false,
+      "active": true,
       "targets": "all",
       "identifier": "com.fallenworld.launcher",
       "icon": [

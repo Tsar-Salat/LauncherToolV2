@@ -9,20 +9,23 @@ on:
 permissions:
   contents: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build-windows:
     name: Build (Windows)
-    runs-on: windows-latest
+    runs-on: windows-2025-vs2026
     defaults:
       run:
         working-directory: fallen-world-launcher
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Install Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
           cache-dependency-path: fallen-world-launcher/package-lock.json
 
@@ -47,6 +50,7 @@ jobs:
           path: |
             fallen-world-launcher/target/release/bundle/nsis/*.exe
             fallen-world-launcher/target/release/bundle/msi/*.msi
+          if-no-files-found: warn
 
   build-linux:
     name: Build (Linux)
@@ -55,7 +59,7 @@ jobs:
       run:
         working-directory: fallen-world-launcher
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Install system dependencies
         run: |
@@ -72,12 +76,13 @@ jobs:
             libssl-dev \
             libxdo-dev \
             libsoup2.4-dev \
-            libjavascriptcoregtk-4.0-dev
+            libjavascriptcoregtk-4.0-dev \
+            squashfs-tools
 
       - name: Install Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
           cache-dependency-path: fallen-world-launcher/package-lock.json
 
@@ -95,6 +100,9 @@ jobs:
       - name: Build Tauri app (Linux)
         run: npm run tauri build
 
+      - name: List bundle output
+        run: find ../target/release/bundle -type f 2>/dev/null || echo "No bundle output found"
+
       - name: Upload Linux artifact
         uses: actions/upload-artifact@v4
         with:
@@ -102,6 +110,7 @@ jobs:
           path: |
             fallen-world-launcher/target/release/bundle/appimage/*.AppImage
             fallen-world-launcher/target/release/bundle/deb/*.deb
+          if-no-files-found: warn
 
   release:
     name: Publish Release
