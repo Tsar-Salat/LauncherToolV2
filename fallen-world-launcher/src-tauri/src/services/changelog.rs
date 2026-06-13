@@ -77,8 +77,7 @@ impl ChangelogService {
     }
 
     fn override_path() -> Option<PathBuf> {
-        let appdata = std::env::var("APPDATA").ok()?;
-        Some(PathBuf::from(appdata).join("FallenWorldLauncher").join("changelog.md"))
+        Some(dirs::data_dir()?.join("FallenWorldLauncher").join("changelog.md"))
     }
 
     /// Dependency-free Markdown parser supporting two changelog shapes:

@@ -59,8 +59,7 @@ impl ModsManager {
 
     // ── user-mod registry (appdata) ──────────────────────────────────────
     fn user_mods_path() -> Option<PathBuf> {
-        let appdata = std::env::var("APPDATA").ok()?;
-        let dir = PathBuf::from(appdata).join("FallenWorldLauncher");
+        let dir = dirs::data_dir()?.join("FallenWorldLauncher");
         let _ = fs::create_dir_all(&dir);
         Some(dir.join("user_mods.json"))
     }

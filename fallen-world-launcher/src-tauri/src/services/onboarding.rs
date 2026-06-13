@@ -40,9 +40,9 @@ impl OnboardingService {
     /// Resolve `%APPDATA%\FallenWorldLauncher\setup.json`. Creates the
     /// parent directory if missing.
     fn config_path() -> Result<PathBuf, String> {
-        let appdata = std::env::var("APPDATA")
-            .map_err(|_| "Cannot determine AppData directory".to_string())?;
-        let dir = PathBuf::from(appdata).join("FallenWorldLauncher");
+        let dir = dirs::data_dir()
+            .ok_or_else(|| "Cannot determine AppData directory".to_string())?
+            .join("FallenWorldLauncher");
         fs::create_dir_all(&dir)
             .map_err(|e| format!("Cannot create config directory: {}", e))?;
         Ok(dir.join("setup.json"))
