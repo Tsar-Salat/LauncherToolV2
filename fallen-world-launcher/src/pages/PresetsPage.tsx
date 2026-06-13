@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { open } from '@tauri-apps/api/dialog'
+import { open } from '@tauri-apps/plugin-dialog'
 import { enbApi, EnbStatus, EnbConfig, EnbIniChange } from '../utils/tauriApi'
 import '../styles/pages/PresetsPage.css'
 

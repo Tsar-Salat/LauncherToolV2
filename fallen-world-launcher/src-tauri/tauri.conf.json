@@ -1,50 +1,39 @@
 {
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Fallen World Launcher",
+  "version": "0.1.0",
+  "identifier": "com.fallenworld.launcher",
   "build": {
     "beforeDevCommand": "npm run dev",
     "beforeBuildCommand": "npm run build",
-    "devPath": "http://localhost:1420",
-    "distDir": "../dist"
+    "devUrl": "http://localhost:1420",
+    "frontendDist": "../dist"
   },
-  "package": {
-    "productName": "Fallen World Launcher",
-    "version": "0.1.0"
-  },
-  "tauri": {
+  "app": {
     "windows": [
       {
-        "fullscreen": false,
-        "height": 850,
-        "resizable": true,
         "title": "Fallen World Launcher",
         "width": 1400,
-        "transparent": false,
-        "decorations": true
+        "height": 850,
+        "resizable": true,
+        "fullscreen": false,
+        "decorations": true,
+        "transparent": false
       }
     ],
     "security": {
       "csp": null
-    },
-    "allowlist": {
-      "all": false,
-      "shell": {
-        "all": false,
-        "open": true
-      },
-      "dialog": {
-        "open": true
-      }
-    },
-    "bundle": {
-      "active": true,
-      "targets": "all",
-      "identifier": "com.fallenworld.launcher",
-      "icon": [
-        "icons/icon-32x32.png",
-        "icons/icon-128x128.png",
-        "icons/icon-256x256.png",
-        "icons/icon-512x512.png",
-        "icons/icon.ico"
-      ]
     }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/icon-32x32.png",
+      "icons/icon-128x128.png",
+      "icons/icon-256x256.png",
+      "icons/icon-512x512.png",
+      "icons/icon.ico"
+    ]
   }
 }

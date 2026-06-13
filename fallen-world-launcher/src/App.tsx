@@ -4,7 +4,7 @@ import Sidebar, { PageName } from './components/Sidebar'
 import TopBar from './components/TopBar'
 import LauncherTutorial from './components/LauncherTutorial'
 import { useI18n } from './i18n'
-import { systemApi, onboardingApi } from './utils/tauriApi'
+import { systemApi, onboardingApi, gameApi } from './utils/tauriApi'
 import HomePage from './pages/HomePage'
 import PresetsPage from './pages/PresetsPage'
 import ModsPage from './pages/ModsPage'
@@ -132,7 +132,7 @@ function App() {
               Do not run this launcher from the MO2 dropdown menu!
             </p>
             <button className="mo2-modal__btn" onClick={() => {
-              import('@tauri-apps/api/process').then(m => m.exit(0));
+              gameApi.quit();
             }}>
               EXIT LAUNCHER
             </button>

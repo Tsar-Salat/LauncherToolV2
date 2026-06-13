@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
-import { open } from '@tauri-apps/api/dialog'
+import { open } from '@tauri-apps/plugin-dialog'
 import { modsApi, ModEntry, dashboardApi } from '../utils/tauriApi'
 import '../styles/pages/ModsPage.css'
 

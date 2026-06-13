@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { open } from '@tauri-apps/api/dialog'
+import { open } from '@tauri-apps/plugin-dialog'
 import { onboardingApi, systemApi, gameApi, iniApi, OnboardingConfig, SystemInfo, PagefileInfo, OperationResult } from '../utils/tauriApi'
 import { useI18n, LangCode } from '../i18n'
 import RobCoTerminal from './RobCoTerminal'
